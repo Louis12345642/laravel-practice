@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Name;
 use App\Models\post;
+use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,10 +58,14 @@ route::get('/see',function(){
 
 // });
 route::get('/blog',function(){
+    $path=resource_path("posts/first-post.html");
+    // LibYamlFrontMatterParser::parseFile($path);
+   $object=YamlFrontMatter::parseFile($path);
+   ddd($object->matter());
 
-return view('blog',[
-    'blog'=>post::all()
-]);
+// return view('blog',[
+//     'blog'=>post::all()
+// ]);
 });
 route::get('/post/{post}',function($slug){
     //find a post by it slug and pass it to view post
