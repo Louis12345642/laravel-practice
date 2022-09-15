@@ -5,6 +5,23 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 
 class post{
+    public $title;
+    public $author;
+    public $date;
+    public $excert;
+    
+
+public function  __contructor($title,$author,$date,$excert){
+    $this->$title=$title;
+    $this->$author=$author;
+    $this->$date =$date;
+    $this->$excert =$excert;
+
+
+}
+    
+
+
     public static function all(){
         $files=File::files(resource_path("posts/"));
        return  array_map(function($file){

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Name;
 use App\Models\post;
-use League\CommonMark\Extension\FrontMatter\Data\LibYamlFrontMatterParser;
+use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
@@ -58,14 +58,33 @@ route::get('/see',function(){
 
 // });
 route::get('/blog',function(){
-    $path=resource_path("posts/first-post.html");
-    // LibYamlFrontMatterParser::parseFile($path);
-   $object=YamlFrontMatter::parseFile($path);
-   ddd($object->matter());
-
-// return view('blog',[
-//     'blog'=>post::all()
-// ]);
+   
+    $posts=[];
+    $files=File::files(resource_path("posts/"));
+  
+    foreach($files as $file){
+        $document=YamlFrontMatter::parseFile($file);
+        // $posts[]=$document->body();
+       
+    //   $posts[]=new post(
+    //     $document->matter('title'),
+    //     $document->matter('author'),
+    //     $document->matter('date'),
+    //     $document->matter('execert'),
+    //     $document->body()
+    //   );
+      $posts[]=[
+        "title" => $document->matter('title'),
+        "author" => $document->matter('author'),
+        "excerpt" => $document->matter('excert'),
+        "data" => $document->matter('date'),
+        "body" => $document->body()
+    ];
+    //   dd($posts);
+    }
+return view('blog',[
+    'blog'=>$posts
+]);
 });
 route::get('/post/{post}',function($slug){
     //find a post by it slug and pass it to view post

@@ -13,7 +13,7 @@
        <a href="/post/first-post"> <h1>post title</h1></a>
      @foreach ($blog as $post)
     <article>
-<?php echo($post); ?>
+<?php echo($post['body']); ?>
     </article>
         
     @endforeach 
