@@ -59,36 +59,36 @@ route::get('/see',function(){
 // });
 route::get('/blog',function(){
    
-    $posts=[];
-    $files=File::files(resource_path("posts/"));
+    // $posts=[];
+    // $files=File::files(resource_path("posts/"));
   
-    foreach($files as $file){
-        $document=YamlFrontMatter::parseFile($file);
-        // $posts[]=$document->body();
+    // foreach($files as $file){
+    //     $document=YamlFrontMatter::parseFile($file);
+    //     // $posts[]=$document->body();
        
-    //   $posts[]=new post(
-    //     $document->matter('title'),
-    //     $document->matter('author'),
-    //     $document->matter('date'),
-    //     $document->matter('execert'),
-    //     $document->body()
-    //   );
-      $posts[]=[
-        "title" => $document->matter('title'),
-        "author" => $document->matter('author'),
-        "excerpt" => $document->matter('excert'),
-        "data" => $document->matter('date'),
-        "body" => $document->body()
-    ];
-    //   dd($posts);
-    }
+    // //   $posts[]=new post(
+    // //     $document->matter('title'),
+    // //     $document->matter('author'),
+    // //     $document->matter('date'),
+    // //     $document->matter('execert'),
+    // //     $document->body()
+    // //   );
+    //   $posts[]=[
+    //     "title" => $document->matter('title'),
+    //     "author" => $document->matter('author'),
+    //     "excerpt" => $document->matter('excert'),
+    //     "data" => $document->matter('date'),
+    //     "body" => $document->body()
+    // ];
+    // //   dd($posts);
+    // }
 return view('blog',[
-    'blog'=>$posts
+    'blog'=>Post::all()
 ]);
 });
-route::get('/post/{post}',function($slug){
+route::get('/post/{post:slug}',function(post $post){
     //find a post by it slug and pass it to view post
     return view('post',[
-     'post'=>post::find($slug)
+     'post'=>$post
     ]);
 });

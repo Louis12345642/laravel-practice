@@ -10,9 +10,19 @@
 <body>
     <article>
     
-    <?php
-    echo($post);
-?>
+ 
+   <article>
+    
+    <h1>{{$post->title}}</h1>
+    <h1>By:{{$post->author}}</h1>
+
+    <p>
+       {{ $post->body}}  
+    </p>
+
+   </article>
+       
+ 
 <a href="/blog"> <h1>go back</h1></a>
      </article>
     

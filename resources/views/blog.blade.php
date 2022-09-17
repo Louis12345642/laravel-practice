@@ -10,12 +10,16 @@
 <body>
    
      <article>
-       <a href="/post/first-post"> <h1>post title</h1></a>
      @foreach ($blog as $post)
-    <article>
-<?php echo($post['body']); ?>
-    </article>
-        
+     <a href="/post/{{$post->slug}}"> <h1><?php echo($post->title); ?></h1></a>
+     <ul>
+      <li>Author:{{$post->author}}</li>
+      <li>Date:{{$post->created_at}}</li>
+     </ul>
+    <p>
+      <?php echo($post->excert); ?>
+    </p>
+ 
     @endforeach 
        
      </article>
