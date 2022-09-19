@@ -15,6 +15,9 @@
      <ul>
       <li>Author:{{$post->author}}</li>
       <li>Date:{{$post->created_at}}</li>
+      {{-- <a href="/categories/{{$post->category->slug}}"><h1>cateqory:{{$post->category->name}}</h1> --}}
+        <h1>cateqory:{{$post->category->name}}</h1>
+      </a>
      </ul>
     <p>
       <?php echo($post->excert); ?>

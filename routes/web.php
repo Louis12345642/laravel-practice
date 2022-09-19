@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Name;
@@ -90,5 +91,11 @@ route::get('/post/{post:slug}',function(post $post){
     //find a post by it slug and pass it to view post
     return view('post',[
      'post'=>$post
+    ]);
+});
+route::get('categories/{category:slug}',function(category $category){
+
+ return view('post',[
+     'post'=>$category->Posts
     ]);
 });
