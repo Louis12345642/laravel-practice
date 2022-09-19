@@ -34,5 +34,38 @@ class DatabaseSeeder extends Seeder
             'name' => 'work',
             'slug' => 'work',
         ]);
+
+        \App\Models\Post::create([
+            'category_id'=>1,
+            'user_id'=>3,
+            'title' => 'Works Where You Do',
+            'slug' => 'Works-Where-You-Do',
+            'excert'=>'Get suggestions from Grammarly while you 
+            write in desktop applications and sites across
+             the web—as you move between apps, social media,
+              documents, messages, and emails.',
+            'body'=>'Get suggestions from Grammarly while you write in
+             desktop applications and sites across the web—as
+             you move between apps, social media, documents, messages, and emails. ',
+             'author'=>'kual louis dau Arop and Agoody'
+
+        ]);
+
+        \App\Models\Post::create([
+            'category_id'=>2,
+            'user_id'=>2,
+            'title' => 'Works Where You Do',
+            'slug' => 'Works-Where-You-work',
+            'excert'=>'Get suggestions from Grammarly while you 
+            write in desktop applications and sites across
+             the web—as you move between apps, social media,
+              documents, messages, and emails.',
+            'body'=>'Get suggestions from Grammarly while you write in
+             desktop applications and sites across the web—as
+             you move between apps, social media, documents, messages, and emails. ',
+             'author'=>'kual louis dau'
+        
+             
+        ]);
     }
 }
