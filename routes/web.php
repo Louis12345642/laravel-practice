@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Name;
 use App\Models\post;
+use App\Models\Post as ModelsPost;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
@@ -97,5 +99,12 @@ route::get('categories/{category:slug}',function(category $category){
 
  return view('post',[
      'post'=>$category->Posts
+    ]);
+});
+
+route::get('authors/{author}',function(User $Author){
+    //find a post by it slug and pass it to view post
+    return view('post',[
+     'post'=>$Author->posts
     ]);
 });

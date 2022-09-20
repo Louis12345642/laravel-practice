@@ -17,7 +17,7 @@
     <h1 align="center">{{$post->title}}</h1>
  <ul>
     <li>Author:{{$post->Author->name}}</li>
-    <li><h5> By:<a href="#">{{$post->Author->name}}</a> in {{$post->category->name}}</h5></li>
+<li><h5> By:<a href="author/{{$post->Author->id}}">{{$post->Author->name}}</a> in {{$post->category->name}}</h5></li>
  </ul>
    
 {{-- <a href="/categories/{{$post->categories->slug}}"><h1>cateqory:{{$post->category->name}}</h1></a> --}}

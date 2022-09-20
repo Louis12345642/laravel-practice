@@ -13,7 +13,7 @@ class Post extends Model
     }
 
     public function Author(){
-        return $this->belongsTo(User::class,'author_id');
+        return $this->belongsTo(User::class);
     }
     use HasFactory;
     protected $filterable=(['ttle','excert','id']);
