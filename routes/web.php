@@ -84,7 +84,7 @@ route::get('/blog',function(){
     // //   dd($posts);
     // }
 return view('blog',[
-    'blog'=>Post::all()
+    'blog'=>Post::latest()->with('category')->get()
 ]);
 });
 route::get('/post/{post:slug}',function(post $post){

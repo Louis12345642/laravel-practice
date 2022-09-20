@@ -14,7 +14,7 @@
      <a href="/post/{{$post->slug}}"> <h1><?php echo($post->title); ?></h1></a>
      <ul>
       <li>Date:{{$post->created_at}}</li>
-      <li><h5> By: <a href="#">{{$post->author}}</a> in {{$post->category->name}}</h5></li>
+      <li><h5> By: <a href="#">{{$post->Author->name}}</a> in {{$post->category->name}}</h5></li>
       {{-- <a href="/categories/{{$post->category->slug}}"><h1>cateqory:{{$post->category->name}}</h1> --}}
         
       </a>
