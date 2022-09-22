@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Name;
 use App\Models\post;
+use App\Models\Students;
 use App\Models\Post as ModelsPost;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
@@ -107,4 +108,18 @@ route::get('authors/{author}',function(User $Author){
     return view('post',[
      'post'=>$Author->posts
     ]);
+});
+
+
+
+
+// this is a tempory project that would be transferes
+
+route::get('/results',function(){
+    
+    return view('results',[
+        'students'=>Students::all()
+        
+    ]);
+
 });

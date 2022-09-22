@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use \App\Models\User;
 use \App\Models\category;
 use \App\Models\Post;
+use \App\Models\Students;
+
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -23,5 +25,7 @@ class DatabaseSeeder extends Seeder
         category::truncate();
         User::factory(10)->create();
         Post::factory(10)->create();
+        Students::factory(10)->create();
+
     }
 }
